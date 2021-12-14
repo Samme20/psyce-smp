@@ -24,7 +24,7 @@ export default function Home() {
             <p>Be a part of out great community.</p>
           </a>
 
-        <Link href="/whitelist">
+        <Link href="/rules">
           <a className="card">
             <h3>Register for whitelist &rarr;</h3>
             <p>View rules and apply for whitelist.</p>

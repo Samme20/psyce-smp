@@ -1,29 +1,12 @@
 import Head from 'next/head'
 import Link from 'next/link'
 const axios = require('axios')
-import { useRouter } from 'next/router'
 
-export default function whitelist({ user }) {
-    
-    const registerUsername = e => {
-      e.preventDefault() // don't redirect the page
-      //alert(e.target.name.value)
-      axios.post('/api/whitelist', {
-        message: e.target.name.value,
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
- 
-    }
-    
+export default function whitelist() {    
     return (
     <div className="container">
       <Head>
-        <title>PSYCE SMP | Whitelist</title>
+        <title>PSYCE SMP | Rules</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -51,10 +34,9 @@ export default function whitelist({ user }) {
             </li>
         </ul>
 
-        <form onSubmit={registerUsername}>
-            <input id="name" name="name" type="text" autoComplete="none" placeholder='Minecraft Username' required />
-            <button type="submit">Apply</button>
-        </form>
+        <a href='https://discord.com/api/oauth2/authorize?client_id=920362613773312010&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fwhitelist&response_type=token&scope=identify'>
+          Login with discord
+        </a>
 
 
       </main>
@@ -210,6 +192,3 @@ export default function whitelist({ user }) {
     </div>
   )
 }
-
-
-

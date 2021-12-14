@@ -1,11 +1,21 @@
 import Head from 'next/head'
 import Link from 'next/link'
+const axios = require('axios')
 
 export default function whitelist() {
     
     const registerUsername = e => {
       e.preventDefault() // don't redirect the page
       //alert(e.target.name.value)
+      axios.post('/api/whitelist', {
+        message: e.target.name.value,
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
  
     }
     

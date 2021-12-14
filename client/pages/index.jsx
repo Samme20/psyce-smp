@@ -1,10 +1,11 @@
 import Head from 'next/head'
+import Link from 'next/link'
 
 export default function Home() {
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>PSYCE SMP | Home</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -14,19 +15,21 @@ export default function Home() {
         </h1>
 
         <p className="description">
-          The currently number #1 minecraft SMP!
+          The currently #1 minecraft SMP!
         </p>
         
         <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
+          <a href="https://discord.gg/3RBTtStj4k" target="__blank" className="card">
             <h3>Discord &rarr;</h3>
             <p>Be a part of out great community.</p>
           </a>
 
-          <a href="https://nextjs.org/learn" className="card">
+        <Link href="/whitelist">
+          <a className="card">
             <h3>Register for whitelist &rarr;</h3>
             <p>View rules and apply for whitelist.</p>
           </a>
+        </Link>
 
         </div>
 
@@ -66,21 +69,9 @@ export default function Home() {
         footer {
           width: 100%;
           height: 100px;
-          border-top: 1px solid #eaeaea;
           display: flex;
           justify-content: center;
           align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          cursor: pointer;
         }
 
         a {
@@ -92,7 +83,6 @@ export default function Home() {
           color: #0070f3;
           text-decoration: none;
         }
-
 
         .title {
           margin: 0;
@@ -108,15 +98,6 @@ export default function Home() {
         .description {
           line-height: 1.5;
           font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
         }
 
         .grid {
@@ -138,10 +119,11 @@ export default function Home() {
           text-decoration: none;
           border: 1px solid #eaeaea;
           box-shadow: 3px 3px 5px 0.1 black;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
+          border-radius: 5px;
+          transition: color 0.1s ease, border-color 0.1s ease;
         }
 
+        
         .card:hover,
         .card:focus,
         .card:active {
@@ -160,14 +142,21 @@ export default function Home() {
           line-height: 1.5;
         }
 
-        .logo {
-          height: 1em;
-        }
-
         @media (max-width: 600px) {
+          .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+          }
           .grid {
             width: 100%;
             flex-direction: column;
+          }
+          .title {
+            margin: 0;
+            line-height: 1.15;
+            font-size: 3rem;
           }
         }
       `}</style>

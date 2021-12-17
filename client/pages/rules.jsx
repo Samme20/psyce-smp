@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 const axios = require('axios')
 
-export default function whitelist() {    
+export default function rules() {    
     return (
     <div className="container">
       <Head>
@@ -30,11 +30,11 @@ export default function whitelist() {
                 <code>§ Hacked clients aswell as anything that gives you any kind of assistance (x-ray, kill aura, etc) are strictly forbidden.</code>
             </li>
             <li className="description">
-                <code>§ If you're black you're suscepted to abuse from everyone.</code>
+                <code>§ Dont be a <a href='https://www.urbandictionary.com/define.php?term=Cock%20vore' target="_blank">cock vorer</a></code>
             </li>
         </ul>
 
-        <a href='https://discord.com/api/oauth2/authorize?client_id=920362613773312010&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fwhitelist&response_type=token&scope=identify'>
+        <a className='d-link' href='https://discord.com/api/oauth2/authorize?client_id=920362613773312010&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fwhitelist&response_type=token&scope=identify'>
           Login with discord
         </a>
 
@@ -65,6 +65,20 @@ export default function whitelist() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+        }
+
+        .d-link{
+          margin-top: 2rem;
+          padding: 1.2rem;
+          font-size: 2rem;
+          font-weight: 600;
+          border: solid grey 2px;
+          transition: border-color 0.3s ease;
+        }
+
+        .d-link:hover{
+          border: solid black 2px;
+          transition: border-color 0.1s ease;
         }
 
         form{

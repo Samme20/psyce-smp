@@ -1,25 +1,10 @@
 import Head from 'next/head'
 import Link from 'next/link'
 const axios = require('axios')
-import { useRouter } from 'next/router'
+import { getUserDetails } from '../utils/axios'
 
-export default function whitelist({ user }) {
-    
-    const registerUsername = e => {
-      e.preventDefault() // don't redirect the page
-      //alert(e.target.name.value)
-      axios.post('/api/whitelist', {
-        message: e.target.name.value,
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
- 
-    }
-    
+
+function Whitelist() {
     return (
     <div className="container">
       <Head>
@@ -28,21 +13,7 @@ export default function whitelist({ user }) {
       </Head>
 
       <main>
-        <h1 className="title">
-          Time to login!
-        </h1>
-
-        <p className="description">
-          If you would like to say anything to help your application feel free to fill in the input below.
-        </p>
-
-
-        <form onSubmit={registerUsername}>
-            <input id="name" name="name" type="text" autoComplete="none" placeholder='Minecraft Username' required />
-            <button type="submit">Apply</button>
-        </form>
-
-
+        <p>lol</p>
       </main>
 
       <footer>
@@ -197,5 +168,15 @@ export default function whitelist({ user }) {
   )
 }
 
+
+export const getStaticProps = async () => {
+  const res = await getUserDetails();
+
+  return {
+    props: { data: res.data },
+  };
+};
+
+export default Whitelist
 
 

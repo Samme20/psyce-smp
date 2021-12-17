@@ -29,27 +29,13 @@ export default function whitelist({ user }) {
 
       <main>
         <h1 className="title">
-          Rules & terms
+          Time to login!
         </h1>
 
         <p className="description">
-          By requesting a whitelist you agree to the following rules:
+          If you would like to say anything to help your application feel free to fill in the input below.
         </p>
 
-        <ul type="none">
-            <li className="description">
-              <code>§ You may only deprive someone of their life if you and the offendant <i>both</i> have more than <i>1</i> death.</code>
-            </li>
-            <li className="description">
-                <code>§ You may only grief somone else's belongings if it's judged aggrovated by a judge. This includes to <i>some</i> degree; stealing.</code>
-            </li>
-            <li className="description">
-                <code>§ Hacked clients aswell as anything that gives you any kind of assistance (x-ray, kill aura, etc) are strictly forbidden.</code>
-            </li>
-            <li className="description">
-                <code>§ If you're black you're suscepted to abuse from everyone.</code>
-            </li>
-        </ul>
 
         <form onSubmit={registerUsername}>
             <input id="name" name="name" type="text" autoComplete="none" placeholder='Minecraft Username' required />

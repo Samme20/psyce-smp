@@ -42,7 +42,7 @@ export default function faq() {
                 </li>
                 <li>
                     <h2>Any further problems?</h2>
-                    <p>Don't be afraid to ask us in the PSYCE discord server! Join <a href="https://discord.gg/3RBTtStj4k" className='underline' target="__blank">here</a>.</p>
+                    <p>Don't be afraid to ask us in the PSYCE discord server! Join <a href="https://discord.gg/KXxNQuMac3" className='underline' target="__blank">here</a>.</p>
                 </li>
             </ul>
         </div>

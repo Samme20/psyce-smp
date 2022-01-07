@@ -1,10 +1,27 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
+import CopyIcon from '../resources/copy.png'
+import { useToast } from '@chakra-ui/react'
+
+
 
 
 export default function whitelist() {
-  const [reveal, setReveal] = useState(false);
+  const [reveal, setReveal] = useState(true);
+  const toast = useToast()
+
+  function copyAlert() {
+    navigator.clipboard.writeText("play.dotcheat.com");
+    toast({
+      title: 'Copied to clipboard!',
+      status: 'success',
+      duration: 1000,
+      isClosable: false,
+    })
+  }
+
   return (
     <div className="container">
       <Head>
@@ -23,14 +40,18 @@ export default function whitelist() {
         
         <div className="grid">
 
-          <a href="https://discord.gg/3RBTtStj4k" target="__blank" className="card">
+          <a href="https://discord.gg/KXxNQuMac3" target="__blank" className="card">
             <h3>1. Join our discord</h3>
             <p>You need to join our discord to play on the minecraft server.</p>
           </a>
 
           <a className="card" onClick={console.log("change state to reveal, reveals ip. Nextjs onclick event.")}>
             <h3>2. Get the MC server IP</h3>
-            <p>{reveal? <code>play.dotcheat.com (copy icon)</code> : 'Click to reveal IP. Then join and follow the steps.'}</p>
+            <p>
+              {reveal? 
+              <code onClick={copyAlert}>mc.dotcheat.com <Image width='14px' height='14px' src={CopyIcon} alt='copy icon'></Image></code>
+               : 'Click to reveal IP. Then join and follow the steps.'}
+            </p>
           </a>
 
           <p className='basis'>If you need any further assistance, check out our <Link href='/faq'><a className='underline'>FaQ page</a></Link> or ask us in the PSYCE discord server.</p>
@@ -63,6 +84,11 @@ export default function whitelist() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+        }
+
+        .icon-width {
+          width: 10px;
+          height: 10px;
         }
 
         footer {
@@ -155,6 +181,10 @@ export default function whitelist() {
           font-size: 1.1rem;
           font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
             DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+        }
+
+        code:hover {
+          cursor: pointer;
         }
 
         @media (max-width: 600px) {

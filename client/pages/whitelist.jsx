@@ -13,7 +13,7 @@ export default function whitelist() {
   const toast = useToast()
 
   function copyAlert() {
-    navigator.clipboard.writeText("play.dotcheat.com");
+    navigator.clipboard.writeText("mc.dotcheat.com");
     toast({
       title: 'Copied to clipboard!',
       status: 'success',

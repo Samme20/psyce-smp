@@ -34,6 +34,8 @@ export default function stats() {
             <h3>World size</h3>
             <p>The server's world size is currently <a className='purple'>42gb</a></p>
           </a>
+
+          <p>The stats are currently very fake, tag @danielsv03 in the discord to make him fix this :D</p>
         </div>
       </main>
 

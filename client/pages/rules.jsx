@@ -30,13 +30,15 @@ export default function rules() {
                 <code>§ Hacked clients aswell as anything that gives you any kind of assistance (x-ray, kill aura, etc) are strictly forbidden.</code>
             </li>
             <li className="description">
-                <code>§ Dont be a <a href='https://www.urbandictionary.com/define.php?term=Cock%20vore' target="_blank">cock vorer</a></code>
+                <code>§ Dont be a <a className='underline' href='https://www.urbandictionary.com/define.php?term=Cock%20vore' target="_blank">cock vorer</a></code>
             </li>
         </ul>
 
-        <a className='d-link' href='https://discord.com/api/oauth2/authorize?client_id=920362613773312010&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fwhitelist&response_type=token&scope=identify'>
-          Login with discord
-        </a>
+        <Link href="/whitelist">
+          <a className='d-link'>
+            Agree to terms
+          </a>
+        </Link>
 
 
       </main>
@@ -69,7 +71,7 @@ export default function rules() {
 
         .d-link{
           margin-top: 2rem;
-          padding: 1.2rem;
+          padding: 1rem;
           font-size: 2rem;
           font-weight: 600;
           border: solid grey 2px;
@@ -77,39 +79,12 @@ export default function rules() {
         }
 
         .d-link:hover{
-          border: solid black 2px;
+          border: solid #5c37bc 2px;
           transition: border-color 0.1s ease;
         }
 
-        form{
-            display: flex;
-            align-items: center;
-            margin-top: 5rem;
-            flex-direction: column;
-        }
-
-        form input{
-            font-size: 2rem;
-            border: none;
-            border-bottom: 2px solid black;
-            text-align: center;
-        }
-
-        form input:focus{
-            outline: none;
-        }
-
-        form button{
-            background-color: white; 
-            color: black; 
-            border: 2px solid #5c37bc;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
+        .underline {
+          text-decoration: underline;
         }
 
         ul{

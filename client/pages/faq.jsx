@@ -1,31 +1,50 @@
 import Head from 'next/head'
 import Link from 'next/link'
 
-export default function Home() {
+
+
+export default function faq() {
   return (
     <div className="container">
       <Head>
-        <title>PSYCE SMP | Home</title>
+        <title>PSYCE SMP | FaQ</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
         <h1 className="title">
-          Welcome to <a className="purple">PSYCE SMP!</a>
+          Frequently Asked Questions
         </h1>
 
-        <p className="description">
-          The currently #1 minecraft SMP!
-        </p>
         
-        <div className="grid">
-        <Link href="/rules">
-          <a className="card">
-            <h3>Register for whitelist &rarr;</h3>
-            <p>View rules and apply for whitelist.</p>
-          </a>
-        </Link>
-
+        <div className='list'>
+            <ul>
+                <li>
+                    <h2>How do I join?</h2>
+                    <p>Follow the steps on this website, find it <Link href='/'><a className='underline'>here</a></Link>.</p>
+                </li>
+                <li>
+                    <h2>Do I need a discord account?</h2>
+                    <p>Yes, you need a discord account.</p>
+                </li>
+                <li>
+                    <h2>Cant get into MC server?</h2>
+                    <p>
+                        Once you join the MC server, take note of the code that is presented to you. After that go into the
+                        psyce discord server and find the bot, private message him the code. Then you should have access.
+                    </p>
+                </li>
+                <li>
+                    <h2>Where can I find server stats?</h2>
+                    <p>
+                        In our discord server, but you can also find stats on <Link href='stats'><a className='underline'>this page</a></Link>.
+                    </p>
+                </li>
+                <li>
+                    <h2>Any further problems?</h2>
+                    <p>Don't be afraid to ask us in the PSYCE discord server! Join <a href="https://discord.gg/3RBTtStj4k" className='underline' target="__blank">here</a>.</p>
+                </li>
+            </ul>
         </div>
 
       </main>
@@ -56,9 +75,17 @@ export default function Home() {
           align-items: center;
         }
 
-        .purple {
-           color: #5c37bc;
-           text-decoration: none;
+        .list {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin-top: 1rem;
+        }
+
+        .list h2 {
+            margin-bottom: -10px;
         }
 
         footer {
@@ -67,6 +94,10 @@ export default function Home() {
           display: flex;
           justify-content: center;
           align-items: center;
+        }
+
+        .underline {
+            text-decoration: underline;
         }
 
         a {
@@ -85,56 +116,11 @@ export default function Home() {
           font-size: 4rem;
         }
 
-        .title,
-        .description {
+        .title {
           text-align: center;
         }
 
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-          max-width: 800px;
-          margin-top: 3rem;
-        }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 90%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          box-shadow: 3px 3px 5px 0.1 black;
-          border-radius: 5px;
-          transition: color 0.1s ease, border-color 0.1s ease;
-        }
-
         
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #5c37bc;
-          border-color: #5c37bc;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-        }
 
         @media (max-width: 600px) {
           .container {
@@ -143,10 +129,14 @@ export default function Home() {
             justify-content: flex-start;
             align-items: center;
           }
-          .grid {
-            width: 100%;
-            flex-direction: column;
+          .list {
+              width: 100%;
+              padding: 10px;
           }
+          .list h2 {
+            font-size: 1.4rem;
+          }
+
           .title {
             margin: 0;
             line-height: 1.15;

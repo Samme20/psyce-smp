@@ -1,40 +1,46 @@
 import Head from 'next/head'
 import Link from 'next/link'
 
-export default function Home() {
+export default function stats() {
   return (
     <div className="container">
       <Head>
-        <title>PSYCE SMP | Home</title>
+        <title>PSYCE SMP | Stats</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
         <h1 className="title">
-          Welcome to <a className="purple">PSYCE SMP!</a>
+          Server Stats
         </h1>
-
-        <p className="description">
-          The currently #1 minecraft SMP!
-        </p>
         
         <div className="grid">
-        <Link href="/rules">
           <a className="card">
-            <h3>Register for whitelist &rarr;</h3>
-            <p>View rules and apply for whitelist.</p>
+            <h3>Currently online</h3>
+            <p><a className='purple'>5</a> out of <a className='purple'>11</a> people are currently online</p>
           </a>
-        </Link>
 
+          <a className="card">
+            <h3>Whitelisted Accounts</h3>
+            <p>There are currently <a className='purple'>17</a> whitelisted accounts</p>
+          </a>
+
+          <a className="card">
+            <h3>Uptime</h3>
+            <p>The server has been running for <a className='purple'>201</a> days</p>
+          </a>
+
+          <a className="card">
+            <h3>World size</h3>
+            <p>The server's world size is currently <a className='purple'>42gb</a></p>
+          </a>
         </div>
-
       </main>
 
       <footer>
         <a>
           website by &#169;STHLM Preclarus
-        </a>
-        
+        </a>       
       </footer>
 
       <style jsx>{`
@@ -106,7 +112,7 @@ export default function Home() {
 
         .card {
           margin: 1rem;
-          flex-basis: 90%;
+          flex-basis: 45%;
           padding: 1.5rem;
           text-align: left;
           color: inherit;
@@ -115,14 +121,6 @@ export default function Home() {
           box-shadow: 3px 3px 5px 0.1 black;
           border-radius: 5px;
           transition: color 0.1s ease, border-color 0.1s ease;
-        }
-
-        
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #5c37bc;
-          border-color: #5c37bc;
         }
 
         .card h3 {

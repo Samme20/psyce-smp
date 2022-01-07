@@ -1,11 +1,11 @@
 import Head from 'next/head'
 import Link from 'next/link'
-const axios = require('axios')
-import { getUserDetails } from '../utils/axios'
+import { useState } from 'react'
 
 
-function Whitelist() {
-    return (
+export default function whitelist() {
+  const [reveal, setReveal] = useState(false);
+  return (
     <div className="container">
       <Head>
         <title>PSYCE SMP | Whitelist</title>
@@ -13,7 +13,30 @@ function Whitelist() {
       </Head>
 
       <main>
-        <p>lol</p>
+        <h1 className="title">
+          You're almost ready to play!
+        </h1>
+
+        <p className="description">
+          Follow the few steps below and you'll be online in no time.
+        </p>
+        
+        <div className="grid">
+
+          <a href="https://discord.gg/3RBTtStj4k" target="__blank" className="card">
+            <h3>1. Join our discord</h3>
+            <p>You need to join our discord to play on the minecraft server.</p>
+          </a>
+
+          <a className="card" onClick={console.log("change state to reveal, reveals ip. Nextjs onclick event.")}>
+            <h3>2. Get the MC server IP</h3>
+            <p>{reveal? <code>play.dotcheat.com (copy icon)</code> : 'Click to reveal IP. Then join and follow the steps.'}</p>
+          </a>
+
+          <p className='basis'>If you need any further assistance, check out our <Link href='/faq'><a className='underline'>FaQ page</a></Link> or ask us in the PSYCE discord server.</p>
+
+        </div>
+
       </main>
 
       <footer>
@@ -42,54 +65,6 @@ function Whitelist() {
           align-items: center;
         }
 
-        form{
-            display: flex;
-            align-items: center;
-            margin-top: 5rem;
-            flex-direction: column;
-        }
-
-        form input{
-            font-size: 2rem;
-            border: none;
-            border-bottom: 2px solid black;
-            text-align: center;
-        }
-
-        form input:focus{
-            outline: none;
-        }
-
-        form button{
-            background-color: white; 
-            color: black; 
-            border: 2px solid #5c37bc;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-        }
-
-        ul{
-            text-align: center;
-            padding: 0;
-        }
-        ul *{
-            margin-bottom: 1rem;
-        }
-
-        code {
-            background: #fafafa;
-            border-radius: 5px;
-            padding: 0.75rem;
-            font-size: 1.1rem;
-            font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-              DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-          }
-
         footer {
           width: 100%;
           height: 100px;
@@ -101,6 +76,10 @@ function Whitelist() {
         a {
           color: inherit;
           text-decoration: none;
+        }
+
+        .underline {
+          text-decoration: underline;
         }
 
         .title a {
@@ -124,24 +103,71 @@ function Whitelist() {
           font-size: 1.5rem;
         }
 
+        .grid {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-wrap: wrap;
+          max-width: 800px;
+          margin-top: 3rem;
+        }
+
+        .card {
+          margin: 1rem;
+          flex-basis: 45%;
+          padding: 1.5rem;
+          text-align: left;
+          color: inherit;
+          text-decoration: none;
+          border: 1px solid #eaeaea;
+          box-shadow: 3px 3px 5px 0.1 black;
+          border-radius: 5px;
+          transition: color 0.1s ease, border-color 0.1s ease;
+        }
+
+        
+        .card:hover,
+        .card:focus,
+        .card:active {
+          color: #5c37bc;
+          border-color: #5c37bc;
+        }
+
+        .card h3 {
+          margin: 0 0 1rem 0;
+          font-size: 1.5rem;
+        }
+
+        .card p {
+          margin: 0;
+          font-size: 1.25rem;
+          line-height: 1.5;
+        }
+
+        .basis {
+          padding: 1.5rem;
+        }
+
+        code {
+          background: #fafafa;
+          border-radius: 5px;
+          padding: 0.75rem;
+          font-size: 1.1rem;
+          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+        }
+
         @media (max-width: 600px) {
           .container {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
           }
-          main {
-            width: 90%;
-            flex: 1;
-            display: flex;
+          .grid {
+            width: 100%;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
           }
-          ul *{
-            margin-bottom: 1rem;
-        }
           .title {
             margin: 0;
             line-height: 1.15;
@@ -167,16 +193,3 @@ function Whitelist() {
     </div>
   )
 }
-
-
-export const getStaticProps = async () => {
-  const res = await getUserDetails();
-
-  return {
-    props: { data: res.data },
-  };
-};
-
-export default Whitelist
-
-

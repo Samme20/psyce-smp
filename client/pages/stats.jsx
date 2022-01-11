@@ -50,7 +50,7 @@ export default function stats() {
             <p>The server's world size is currently <a className='purple'>42gb</a></p>
           </a>
 
-          <p>The stats are half working, @Dani M is currently working on it</p>
+          <p> Online status and Server Information section is working, @Dani M is currently working on the rest! </p>
         </div>
       </main>
 

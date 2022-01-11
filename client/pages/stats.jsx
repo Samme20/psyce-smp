@@ -35,8 +35,8 @@ export default function stats() {
           </a>
 
           <a className="card">
-            <h3>Whitelisted Accounts</h3>
-            <p>There are currently <a className='purple'>17</a> whitelisted accounts</p>
+            <h3>Message of the day</h3>
+            <p>{data?.motd.clean}</p>
           </a>
 
           <a className="card">

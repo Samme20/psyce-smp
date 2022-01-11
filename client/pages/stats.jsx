@@ -6,12 +6,15 @@ import axios from 'axios'
 export default function stats() {
   const API = axios.create({baseURL: 'https://api.mcsrvstat.us/2'})
   const [data, setData] = useState(null)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    setLoading(true)
     API.get('/mc.dotcheat.com')
     .then(res => {
       setData(res.data)
       console.log(res.data)
+      setLoading(false)
     })
     
   }, [])
@@ -22,25 +25,32 @@ export default function stats() {
         <title>PSYCE SMP | Stats</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      
       <main>
         <h1 className="title">
           Server Stats
         </h1>
         
         <div className="grid">
-          <a className="card">
+          {loading ? (
+            <a className="card">
+            <h3>Fetching data...</h3>
+            <p><a className='purple' >{data?.players.online}</a> out of <a className='purple'>{data?.players.max}</a> people are currently online</p>
+          </a>
+          ): (
+            <a className="card">
             <h3>Currently {data?.online? 'online': 'offline'}</h3>
             <p><a className='purple' >{data?.players.online}</a> out of <a className='purple'>{data?.players.max}</a> people are currently online</p>
           </a>
+          )}
 
           <a className="card">
-            <h3>Message of the day</h3>
+            <h3>{loading? 'Fetching Data': 'Message of the day'}</h3>
             <p>{data?.motd.clean}</p>
           </a>
 
           <a className="card">
-            <h3>Server Information</h3>
+            <h3>{loading? 'Fetching Data': 'Server Information'}</h3>
             <p>Server software: <a className='purple'>{data?.software}</a></p>
             <p>Server version: <a className='purple'>{data?.version}</a></p>
           </a>

@@ -1,7 +1,21 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 export default function stats() {
+  const API = axios.create({baseURL: 'https://api.mcsrvstat.us/2'})
+  const [data, setData] = useState(null)
+
+  useEffect(() => {
+    API.get('/mc.dotcheat.com')
+    .then(res => {
+      setData(res.data)
+      console.log(res.data)
+    })
+    
+  }, [])
+
   return (
     <div className="container">
       <Head>
@@ -16,8 +30,8 @@ export default function stats() {
         
         <div className="grid">
           <a className="card">
-            <h3>Currently online</h3>
-            <p><a className='purple'>5</a> out of <a className='purple'>11</a> people are currently online</p>
+            <h3>Currently {data?.online? 'online': 'offline'}</h3>
+            <p><a className='purple' >{data?.players.online}</a> out of <a className='purple'>{data?.players.max}</a> people are currently online</p>
           </a>
 
           <a className="card">
@@ -26,8 +40,9 @@ export default function stats() {
           </a>
 
           <a className="card">
-            <h3>Uptime</h3>
-            <p>The server has been running for <a className='purple'>201</a> days</p>
+            <h3>Server Information</h3>
+            <p>Server software: <a className='purple'>{data?.software}</a></p>
+            <p>Server version: <a className='purple'>{data?.version}</a></p>
           </a>
 
           <a className="card">
@@ -35,7 +50,7 @@ export default function stats() {
             <p>The server's world size is currently <a className='purple'>42gb</a></p>
           </a>
 
-          <p>The stats are currently very fake, tag @danielsv03 in the discord to make him fix this :D</p>
+          <p>The stats are half working, @Dani M is currently working on it</p>
         </div>
       </main>
 

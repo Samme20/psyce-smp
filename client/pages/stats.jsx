@@ -35,18 +35,18 @@ export default function stats() {
           {loading ? (
             <a className="card">
             <h3>Fetching data...</h3>
-            <p><a className='purple' >{data?.players.online}</a> out of <a className='purple'>{data?.players.max}</a> people are currently online</p>
+            <p><a className='purple' >{data?.players?.online}</a> out of <a className='purple'>{data?.players?.max}</a> people are currently online</p>
           </a>
           ): (
             <a className="card">
             <h3>Currently {data?.online? 'online': 'offline'}</h3>
-            <p><a className='purple' >{data?.players.online}</a> out of <a className='purple'>{data?.players.max}</a> people are currently online</p>
+            <p><a className='purple' >{data?.players?.online}</a> out of <a className='purple'>{data?.players?.max}</a> people are currently online</p>
           </a>
           )}
 
           <a className="card">
             <h3>{loading? 'Fetching Data': 'Message of the day'}</h3>
-            <p>{data?.motd.clean}</p>
+            <p>{data?.motd?.clean}</p>
           </a>
 
           <a className="card">
